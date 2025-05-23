@@ -1,0 +1,36 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependency directories
+node_modules/
+my-guide/node_modules/
+
+# Build output
+dist/
+dist-ssr/
+build/
+
+# Local environment files
+.env
+*.local
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor and IDE folders
+.vscode/
+!.vscode/extensions.json
+.idea/
+
+# Optional: Mac/Windows-specific hidden files
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
