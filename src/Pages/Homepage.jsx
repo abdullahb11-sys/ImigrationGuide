@@ -5,7 +5,8 @@ import FeaturedCountries from "../components/countrycards";
 import Footer from "../components/footer";
 import BlogsAndPosts from "../components/blog";
 import KeyFeatures from "../components/keyFeatures";
-import SidebarMenu from "../components/sidebar"; // Import Sidebar
+import SidebarMenu from "../components/sidebar";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   return (
@@ -23,9 +24,9 @@ export default function HomePage() {
         ></video>
         <div className="absolute flex flex-col right-50 bottom-10 sm:right-10">
           
-          <button className="transition-all border cursor-pointer   duration-300 hover:-translate-y-1 hover:rounded-xl text-white text-lg font-semibold py-3 px-6">
+          <Link to = '/signup'><button  className="transition-all border cursor-pointer   duration-300 hover:-translate-y-1 hover:rounded-xl text-white text-lg font-semibold py-3 px-6">
             Get Started
-          </button>
+          </button></Link>
         </div>
       </header>
 
