@@ -26,9 +26,9 @@ export default function Signup(){
     setError('');
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/register`, formData);
+      await axios.post(`http://localhost:5000/api/auth/register`, formData);
       // After successful registration, automatically log in
-      const loginResponse = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/login`, {
+      const loginResponse = await axios.post(`http://localhost:5000/api/auth/login`, {
         email: formData.email,
         password: formData.password
       });

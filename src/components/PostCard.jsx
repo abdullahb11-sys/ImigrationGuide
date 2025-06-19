@@ -84,7 +84,6 @@ const PostCard = ({ post, onUpdate, onDelete, currentUser }) => {
             await axios.delete(`http://localhost:5000/api/posts/${post._id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
-
             onDelete(post._id);
         } catch (error) {
             console.error('Error deleting post:', error);

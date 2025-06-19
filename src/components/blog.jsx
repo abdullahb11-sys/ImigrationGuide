@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import BlogImg from '../assets/Blog.png';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function BlogsAndPosts() {
     const [news, setNews] = useState([]);
@@ -10,8 +11,8 @@ export default function BlogsAndPosts() {
     useEffect(() => {
         const fetchNews = async () => {
             try {
-                const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/news/immigration-news?page=1&limit=6`);
-                const data = await response.json();
+                const response = await axios.get(`http://localhost:5000/api/news/immigration-news?page=1&limit=6`);
+                const data = response.data;
                 
                 if (data.status === 'success') {
                     setNews(data.data);

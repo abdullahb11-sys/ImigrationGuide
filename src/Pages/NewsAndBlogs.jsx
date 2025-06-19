@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/NavBar';
+import axios from 'axios';
 
 const NewsAndBlogs = () => {
   const [news, setNews] = useState([]);
@@ -29,8 +30,8 @@ const NewsAndBlogs = () => {
         ...(selectedCountry && { country: selectedCountry }),
       });
 
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/news/immigration-news?${params}`);
-      const data = await response.json();
+      const response = await axios.get(`http://localhost:5000/api/news/immigration-news?${params}`);
+      const data = response.data;
 
       if (data.status === 'success') {
         setNews(data.data);

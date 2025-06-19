@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
+import axios from 'axios';
 
 const COUNTRY_OPTIONS = ['USA', 'Canada', 'Germany', 'Australia', 'Pakistan'];
 const TYPE_OPTIONS = ['job', 'education'];
@@ -34,8 +35,8 @@ export default function JobsEducation() {
       if (search) params.append('search', search);
       params.append('page', pageNum);
       params.append('limit', 6);
-      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/jobs-education?${params.toString()}`);
-      const data = await res.json();
+      const response = await axios.get(`http://localhost:5000/api/jobs-education?${params.toString()}`);
+      const data = response.data;
       setResults(data.data);
       setTotalPages(data.totalPages);
       setPage(data.page);

@@ -41,7 +41,7 @@ const CreatePostForm = ({ onPostCreated, onCancel }) => {
 
         try {
             const tags = formData.tags.split(',').map(tag => tag.trim()).filter(tag => tag);
-            const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/posts`, {
+            const response = await axios.post(`http://localhost:5000/api/posts`, {
                 ...formData,
                 tags
             }, {

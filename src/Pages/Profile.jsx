@@ -35,7 +35,7 @@ const Profile = () => {
     const fetchUserProfile = async () => {
         try {
             setIsLoading(true);
-            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/auth/profile`, {
+            const response = await axios.get(`http://localhost:5000/api/auth/profile`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
@@ -104,7 +104,7 @@ const Profile = () => {
 
         try {
             // Update user profile
-            await axios.put(`${import.meta.env.VITE_API_BASE_URL}/api/auth/profile`, {
+            await axios.put(`http://localhost:5000/api/auth/profile`, {
                 name: profile.name,
                 dateOfBirth: profile.dateOfBirth,
                 gender: profile.gender,
@@ -121,7 +121,7 @@ const Profile = () => {
                 const formData = new FormData();
                 formData.append('profilePicture', profilePicture);
 
-                await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/profile/picture`, formData, {
+                await axios.post(`http://localhost:5000/api/auth/profile/picture`, formData, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                         'Content-Type': 'multipart/form-data'

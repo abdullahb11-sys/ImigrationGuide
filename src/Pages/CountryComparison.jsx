@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from '../components/NavBar';
+import axios from 'axios';
 
 const COUNTRY_OPTIONS = ['USA', 'Canada', 'Germany', 'Australia', 'Pakistan'];
 
@@ -23,10 +24,10 @@ export default function CountryComparison() {
     setError('');
     setLoading(true);
     try {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/api/countries/compare?countries=${selectedCountries.join(',')}`
+      const response = await axios.get(
+        `http://localhost:5000/api/countries/compare?countries=${selectedCountries.join(',')}`
       );
-      const data = await res.json();
+      const data = response.data;
       setComparisonData(data);
     } catch (err) {
       setError('Failed to fetch comparison data.');

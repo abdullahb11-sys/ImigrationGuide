@@ -32,7 +32,7 @@ const Community = () => {
                 search: searchQuery
             });
 
-            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/posts?${params}`);
+            const response = await axios.get(`http://localhost:5000/api/posts?${params}`);
             setPosts(response.data.posts);
             setTotalPages(response.data.totalPages);
             setTotalPosts(response.data.totalPosts);
